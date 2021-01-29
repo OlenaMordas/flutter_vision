@@ -22,12 +22,8 @@ class _DetailScreenState extends State<DetailScreen> {
   Size _imageSize;
   String recognizedText = "Loading ...";
 
-  void _initializeVision() async {
-    // TODO: Initialize the text recognizer here
-  }
-
-  Future<void> _getImageSize(File imageFile) async {
-    // TODO: Retrieve the image size here
+  Future<void> _processImage(File imageFile) async {
+    final File imageFile = File(path);
   }
 
   @override
