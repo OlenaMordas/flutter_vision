@@ -42,12 +42,23 @@ class CameraScreen extends StatefulWidget {
 class _CameraScreenState extends State<CameraScreen> {
 
   CameraController _controller;
+  Map<String, double> _position;
+  bool _isRectangleVisible;
+
 
   @override
   void initState() {
+
     super.initState();
 
-    _controller = CameraController(cameras[0], ResolutionPreset.medium);
+    _position = {
+      'x': 80,
+      'y': 80,
+      'w': 220,
+      'h': 350,
+    };
+    _isRectangleVisible=true;
+    _controller = CameraController(cameras[1], ResolutionPreset.max);
     _controller.initialize().then((_) {
       if (!mounted) {
         return;
@@ -96,7 +107,7 @@ class _CameraScreenState extends State<CameraScreen> {
       print("Camera Exception: $e");
       return null;
     }
-
+    print('Picture taken');
     return imagePath;
   }
 
@@ -104,12 +115,29 @@ class _CameraScreenState extends State<CameraScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ML Vision'),
+        title: Text('Selfie'),
       ),
       body: _controller.value.isInitialized
           ? Stack(
         children: <Widget>[
           CameraPreview(_controller),
+          if (_isRectangleVisible)
+            Positioned(
+              left: _position['x'],
+              top: _position['y'],
+              child: InkWell(
+                child: Container(
+                  width: _position['w'],
+                  height: _position['h'],
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 4,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Container(

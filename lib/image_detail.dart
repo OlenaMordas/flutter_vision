@@ -40,9 +40,12 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Image Details"),
+        title: Text('Image Details'),
       ),
-      body: Container(),
+      body: Container(
+        alignment: Alignment.center,
+        child: Text('Success!'),
+      ),
     );
   }
 }
