@@ -22,13 +22,14 @@ class _DetailScreenState extends State<DetailScreen> {
   Size _imageSize;
   String recognizedText = "Loading ...";
 
-  Future<void> _processImage(File imageFile) async {
+
+
+  Future<void> _getImage(File imageFile) async {
     final File imageFile = File(path);
   }
 
   @override
   void initState() {
-    _initializeVision();
     super.initState();
   }
 

@@ -125,7 +125,6 @@ class _CameraScreenState extends State<CameraScreen> {
             Positioned(
               left: _position['x'],
               top: _position['y'],
-              child: InkWell(
                 child: Container(
                   width: _position['w'],
                   height: _position['h'],
@@ -137,7 +136,6 @@ class _CameraScreenState extends State<CameraScreen> {
                   ),
                 ),
               ),
-            ),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Container(
